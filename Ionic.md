@@ -20,7 +20,7 @@ Ionic предоставляет инструменты и сервисы для
 * **Ionic Creator** - это drag'n'drop builder интерфейса приложения, который недавно стал публичным.
 В Creator встроены базовые шаблоны страниц, которые упрощают прототипирование. Элементов, которые можно добавлять на страницы, много: кнопки, формы, разделители, HTML/Markdown вставки, картинки и многое другое. Страницы можно связывать между собой, на событие клика кнопки можно вешать переход к другим страницам приложения.
 * **ng-cordova** - это набор из более чем 60 плагинов, которые являются AngularJS-обертками для наиболее популярных Cordova и Phonegap плагинов, предоставляя уйму возможностей, напр.:
-    * сканирование баркодов (`cordova-plugin-qrscanner и phonegap-plugin-barcodescanner`)
+    * сканирование баркодов (`cordova-plugin-qrscanner` *и* `phonegap-plugin-barcodescanner`)
     * загрузка файлов (`integrator-cordova-plugin-downloader`)
     * работа с социальными сетями (*напр.* `cordova-plugin-facebook`*,* `twitter-connect`*,* `instagram-plugin`*,* `cordova-plugin-pinterest` *и т.д.*)
     * геолокация (`cordova-plugin-geolocation`)
