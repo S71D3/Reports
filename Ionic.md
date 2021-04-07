@@ -70,7 +70,6 @@ Ionic предоставляет инструменты и сервисы для
 * https://en.wikipedia.org/wiki/Ionic_(mobile_app_framework)/
 * https://gist.github.com/SerafimArts/de9900f9977780de355d/
 * https://habr.com/ru/post/255653/
-* https://habr.com/ru/post/550088/
 * https://vc.ru/dev/55012-obzor-razrabotki-mobilnyh-prilozheniy-na-ionic-framework/
 * https://blog.ionicframework.com/
 * https://code.tutsplus.com/ru/articles/introduction-to-ionic-2--cms-28193
