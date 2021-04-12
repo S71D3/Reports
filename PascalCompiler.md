@@ -214,4 +214,106 @@ successed!
 	 * используется для record-типов, и имеет поле `std::vector<Field> fields`, используемое для хранения списка полей, которые, по сути, являются переменными  
 
 Для большего понимания, диаграмма всех описанных выше классов:
-![types and variables diagram](https://github.com/S71D3/Reports/raw/master/res/compiler3.png)
+![types and variables diagram](https://github.com/S71D3/Reports/raw/master/res/compiler3.png)  
+  
+#### Тестирование  
+ * необъявленный идентификатор
+```
+program test1;
+var
+	a, b, c: integer;
+begin
+	f:=3.4;
+end.
+```
+```
+unsuccesed!
+<E> Error: Undefined identifier: string 5, token f
+```
+ * выход за границы массива
+```
+program test1;
+var
+	d: array [1..5] of integer;
+begin
+
+	while d[5]>0 do begin
+		d[6]:=3;
+	end;
+end.
+```
+```
+unsuccesed!
+<E> Error: Out of array range: string 7, token ]
+```
+ * необъявленное поле типа record
+```
+program test1;
+type
+	tp = record
+		x,y:integer;
+	end;
+	
+var
+	e: tp;
+begin
+	with e do begin
+		z:=1;
+	end;
+end.
+```
+```
+unsuccesed!
+<E> Error: Undefined identifier: string 11, token z
+```
+ * несоответствие типов
+```
+program test1;
+var
+	g: char;
+begin
+	g:=3;
+end.
+```
+```
+unsuccesed!
+<E> Error: Incorrent type: string 5, token :=
+```
+ * рабочая программа
+```
+program test1;
+type
+	tp = record
+		x,y:integer;
+	end;
+var
+	d: array [1..5] of integer;
+	f: real;
+	a, b, c: integer;
+	e: tp;
+begin
+	c:=2;
+	f:=3.4;
+	e.y:=0;
+	d[3]:=0;
+	
+	while d[4]>0 do begin
+		c:=c+1+2*3;
+	end;
+	
+	if e.y>0 then begin
+		d[3] := c + 2.1;
+	end
+	else begin
+		c := c + 3;
+	end;
+	
+	with e do begin
+		y:=1;
+	end;
+end.
+```
+`successed!`
+
+ ## Менеджер ошибок
+ Менеджер ошибок реализован с помощью ранее описанного словаря ошибок и общего для всего компилятора стека, представленного в виде `std::vector<std::pair<Lexem, errors>> errorsStack`, в который, с помощью метода `push_back(...)` добавляются пары, содержащие лексему, вызвавшую ошибку, и кода самой ошибки, а в конце компиляции - информация выводится из стека
